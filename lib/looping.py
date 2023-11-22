@@ -1,17 +1,23 @@
-# looping_test.py
+#!/usr/bin/env python3
 
-def test_print_digits(capsys):
-    print_digits()
-    captured = capsys.readouterr()
+def happy_new_year():
+    countdown = 10
+    while countdown in range(10, 0, -1):
+        print(countdown)
+        countdown -= 1
+    
+    print("Happy New Year!")
 
-    expected_output = "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n"
-    assert captured.out == expected_output, f"Expected: {expected_output}, Got: {captured.out}"
+def square_integers(int_list):
+    return [i ** 2 for i in int_list]
 
-    # Check if all digits 1-10 are present
-    remaining_digits = set(map(str, range(1, 11))) - set(captured.out.strip().split('\n'))
-    assert remaining_digits == set(), f"You didn't print all digits 1-10, missing {', '.join(remaining_digits)}"
-
-# Additional function to print digits
-def print_digits():
-    for i in range(1, 11):
-        print(i)
+def fizzbuzz():
+    for i in range(1, 101):
+        if not i % 15:
+            print("FizzBuzz")
+        elif not i % 5:
+            print("Buzz")
+        elif not i % 3:
+            print("Fizz")
+        else:
+            print(i)
